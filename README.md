@@ -85,14 +85,13 @@ ERD Model
 Use this section to display an image of a computer generated ERD model. You can use draw.io, Lucidchart or another ERD tool.
 
 
+![Odyssey](https://user-images.githubusercontent.com/89665115/139916905-c3be8cec-ddef-48ce-a927-e1f1fc89efd6.jpg)
 
 Post-MVP
 favorite system
 like system 
 Find random bloggers
 connect the my gear to stores
-
-![Odyssey](https://user-images.githubusercontent.com/89665115/139916905-c3be8cec-ddef-48ce-a927-e1f1fc89efd6.jpg)
 
 
 Code Showcase

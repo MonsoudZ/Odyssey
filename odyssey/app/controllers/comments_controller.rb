@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
       render json: @comment
     elsif @payload[:id] != @comment.user_id
       render json: {
-        error: 'User is not the owner of this comment.'
+        error: 'Dont have permission.'
         }, status: :unauthorized
     else
       render json: @comment.errors, status: :unprocessable_entity
@@ -46,10 +46,10 @@ class CommentsController < ApplicationController
   def destroy
     if @payload[:id] == @comment.user_id
       @comment.destroy
-      render json: { message: 'Comment has been destroyed.'}
+      render json: { message: 'order 66.'}
     elsif @payload[:id] != @comment.user_id
       render json: {
-        error: 'User is not the owner of this comment.'
+        error: 'Sorry, you cant do this.'
         }, status: :unauthorized
     else
       render json: @post.errors, status: :unprocessable_entity

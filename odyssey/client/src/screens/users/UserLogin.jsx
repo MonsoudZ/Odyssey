@@ -12,14 +12,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-        Odyssey
-    </Typography>
-  );
-}
 
 const theme = createTheme();
 
@@ -85,9 +77,7 @@ const handleSubmit = (e) => {
                 autoComplete="Username"
                 autoFocus
                 type='text'
-                    label='Username'
-                    name='username'
-                    value={username}
+                  value={username}
                   onChange={handleChange}
               />
               <TextField
@@ -125,7 +115,6 @@ const handleSubmit = (e) => {
                   </Link>
                 </Grid>
               </Grid>
-              <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>
         </Grid>

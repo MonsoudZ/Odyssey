@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :authorize_request, except: [:index]
   # GET /posts
   def index
-    p("Fuck This")
+    p("The Mountain")
     @posts = Post.all.sort { |a, b| a.id - b.id }
     render json: @posts, include: [
       user: { only: ['username', 'image_url'] },
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
         status: :accepted
     elsif @payload[:id] != @post.user_id
       render json: {
-        error: 'User is not the owner of this post.'
+        error: 'not the owner .'
         }, status: :unauthorized
     else
       render json: @post.errors, status: :unprocessable_entity
@@ -53,10 +53,10 @@ class PostsController < ApplicationController
   def destroy
     if @payload[:id] == @post.user_id
       @post.destroy
-      render json: { message: 'Post has been destroyed.' }
+      render json: { message: 'destroyed.' }
     elsif @payload[:id] != @post.user_id
       render json: {
-        error: 'User is not the owner of this post.'
+        error: 'User is not the owner.'
         }, status: :unauthorized
     else
       render json: @post.errors, status: :unprocessable_entity

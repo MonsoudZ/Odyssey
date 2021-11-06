@@ -1,5 +1,20 @@
 import { useState, useEffect } from 'react'
-import {Route, Switch, Redirect, useHistory} from 'react-router-dom'
+import { Route, Switch, Redirect, useHistory } from 'react-router-dom'
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
+import CameraIcon from '@mui/icons-material/PhotoCamera';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import CssBaseline from '@mui/material/CssBaseline';
+import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import Home from '../screens/home/home'
 import Posts from '../screens/posts/Posts'
 import PostCreate from '../screens/posts/PostCreate'
@@ -70,60 +85,97 @@ export default function MainContainer({ currentUser, handleImageUpload }) {
     await putComment(post_id, comment_id, formData)
     history.push(`/posts/${post_id}`)
   }
-
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
-    <div>
-      <Switch>
-        <Route path='/posts/:post_id/comments/:id/update'>
-          {currentUser ? (
-            <CommentUpdate handleCommentUpdate={handleCommentUpdate} />
-          ) : (
-            <Redirect to='/login' />
-          )}
-        </Route>
-        <Route path='/posts/:id/comments/create'>
-          {currentUser ? (
-            <CommentCreate handleCommentCreate={handleCommentCreate} />
-          ) : (
-            <Redirect to='/login' />
-          )}
-        </Route>
-        <Route path='/posts/create'>
-          {currentUser ? (
-            <PostCreate
-              handlePostCreate={handlePostCreate}
-              handleImageUpload={handleImageUpload}
+    <Grid container spacing={4}>
+      {cards.map((card) => (
+        <Grid item key={card} xs={12} sm={6} md={4}>
+          <Card
+            sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+          >
+            <CardMedia
+              component="img"
+              sx={{
+                // 16:9
+                pt: '56.25%',
+              }}
+              image="https://source.unsplash.com/random"
+              alt="random"
             />
-          ) : (
-            <Redirect to='/login' />
-          )}
-        </Route>
-        <Route path='/posts/:id/update'>
-          {currentUser ? (
-            <PostUpdate posts={posts} handlePostUpdate={handlePostUpdate} />
-          ) : (
-            <Redirect to='/login' />
-          )}
-        </Route>
-        <Route path='/posts/:id'>
-          <PostDetail
-            currentUser={currentUser}
-            posts={posts}
-            setPosts={setPosts}
-            handlePostDelete={handlePostDelete}
-          />
-        </Route>
-        <Route path='/posts'>
-          <Posts
-            currentUser={currentUser}
-            posts={posts}
-            handlePostDelete={handlePostDelete}
-          />
-        </Route>
-        <Route path='/'>
-          <Home currentUser={currentUser} latestPosts={latestPosts} />
-        </Route>
-      </Switch>
-    </div>
-  )
-}
+            <CardContent sx={{ flexGrow: 1 }}>
+              <Typography gutterBottom variant="h5" component="h2">
+                Heading
+              </Typography>
+              <Typography>
+                This is a media card. You can use this section to describe the
+                content.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">View</Button>
+              <Button size="small">Edit</Button>
+            </CardActions>
+          </Card>
+        </Grid>
+      ))}
+    </Grid>
+  )}
+
+
+
+
+//     <div>
+//       <Switch>
+//         <Route path='/posts/:post_id/comments/:id/update'>
+//           {currentUser ? (
+//             <CommentUpdate handleCommentUpdate={handleCommentUpdate} />
+//           ) : (
+//             <Redirect to='/login' />
+//           )}
+//         </Route>
+//         <Route path='/posts/:id/comments/create'>
+//           {currentUser ? (
+//             <CommentCreate handleCommentCreate={handleCommentCreate} />
+//           ) : (
+//             <Redirect to='/login' />
+//           )}
+//         </Route>
+//         <Route path='/posts/create'>
+//           {currentUser ? (
+//             <PostCreate
+//               handlePostCreate={handlePostCreate}
+//               handleImageUpload={handleImageUpload}
+//             />
+//           ) : (
+//             <Redirect to='/login' />
+//           )}
+//         </Route>
+//         <Route path='/posts/:id/update'>
+//           {currentUser ? (
+//             <PostUpdate posts={posts} handlePostUpdate={handlePostUpdate} />
+//           ) : (
+//             <Redirect to='/login' />
+//           )}
+//         </Route>
+//         <Route path='/posts/:id'>
+//           <PostDetail
+//             currentUser={currentUser}
+//             posts={posts}
+//             setPosts={setPosts}
+//             handlePostDelete={handlePostDelete}
+//           />
+//         </Route>
+//         <Route path='/posts'>
+//           <Posts
+//             currentUser={currentUser}
+//             posts={posts}
+//             handlePostDelete={handlePostDelete}
+//           />
+//         </Route>
+//         <Route path='/'>
+//           <Home currentUser={currentUser} latestPosts={latestPosts} />
+//         </Route>
+//       </Switch>
+//     </div>
+//   )
+// }

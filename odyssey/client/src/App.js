@@ -1,4 +1,4 @@
-import './App.css'
+
 import { useState, useEffect } from 'react'
 import { Route, Switch, Redirect, useHistory } from 'react-router-dom'
 import Layout from './layouts/Layout'

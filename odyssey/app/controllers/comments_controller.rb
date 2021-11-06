@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   
   # GET /comments
   def index
-    p("fuck ruby")
+    p("")
     @comment = Comment.all
     render json: @comment, include: [
       user: { only: ['user_id'] },

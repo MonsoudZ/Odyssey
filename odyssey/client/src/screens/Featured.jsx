@@ -1,7 +1,7 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import MainFeature from "./MainFeature";
-import Cards from "../../components/Cards/Cards";
+import Cards from "../components/Cards/Cards";
 
 export default function Featured() {
   return (

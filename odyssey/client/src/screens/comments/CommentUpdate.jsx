@@ -37,7 +37,7 @@ export default function CommentUpdate({ handleCommentUpdate }) {
 
     return (
         <div>
-            <h1>Update your 2 cents!</h1>
+            <h1>Speak your mind</h1>
             <form onSubmit={handleSubmit}>
                 <TextField
                     autoFocus

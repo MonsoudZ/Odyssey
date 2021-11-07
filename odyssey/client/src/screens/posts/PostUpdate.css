@@ -1,0 +1,9 @@
+div.comment-update {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:rgb(117, 7, 190);
+  border: brown;
+}
+
+

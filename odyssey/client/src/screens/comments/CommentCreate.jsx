@@ -26,7 +26,7 @@ export default function CommentCreate({ handleCommentCreate }) {
 
     return (
         <div>
-            <h1>Add your 2 cents!</h1>
+            <h1>Speak youur mind</h1>
             <form onSubmit={handleSubmit}>
                 <TextField
                     autoFocus

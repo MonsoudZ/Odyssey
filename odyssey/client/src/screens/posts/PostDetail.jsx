@@ -38,7 +38,7 @@ export default function PostDetail({ currentUser, posts, setPosts, handlePostDel
         setToggle(true)
     }
 
-    if (!toggle) return <h3>loading</h3>
+    if (!toggle) return <h3>We are trying</h3>
 
     return (
         <div>
@@ -48,7 +48,7 @@ export default function PostDetail({ currentUser, posts, setPosts, handlePostDel
                 handlePostDelete={handlePostDelete}
             />
             <Link to={`/posts/${post.id}/comments/create`}>
-                <button>Add your two cents</button>
+                <button>Your thoughts</button>
             </Link>
             {comments.map(comment => (
                 <CommentCard

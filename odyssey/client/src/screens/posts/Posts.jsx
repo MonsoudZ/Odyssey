@@ -4,11 +4,11 @@ import PostCard from '../../components/PostCard'
 
 
 export default function Posts({ currentUser, posts, handlePostDelete }) {
-    if (!posts.length) return <h3>loading</h3>
+    if (!posts.length) return <h3>We trying over here</h3>
     
     return (
         <div>
-            <h1>All the Hubbub</h1>
+            
                 {posts?.map((post, index) => (
                     <div key={index}>
                         <PostCard

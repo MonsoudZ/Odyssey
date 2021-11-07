@@ -10,13 +10,13 @@ export default function Home({ currentUser, latestPosts, handlePostDelete }) {
           <h1>Welcome {currentUser.username}!</h1>
           <br />
           <h3>
-            Let everyone know what's on your mind{' '}
+            Post your adventure{' '}
             <Link to='/posts/create'>here</Link>
           </h3>
         </>
       ) : (
         <>
-          <h1 className='home-welcome-message'>Welcome to Hubbub!</h1>
+          <h1 className='home-welcome-message'>The adventure awaits</h1>
           <br />
           <div className='home-helper-text'>
             <span>
@@ -24,14 +24,12 @@ export default function Home({ currentUser, latestPosts, handlePostDelete }) {
                 Sign up
               </Link>{' '}
             </span>
-            today and see what all the hubbub is about.
           </div>
         </>
       )}
       <br />
       <br />
       <div>
-        <div className='home-latest-post-title'>Latest Posts</div>
         <div className='home-latest-post-container'>
           {latestPosts.map(latestPost => (
             <div key={latestPost.id} className='home-latest-post-container'>

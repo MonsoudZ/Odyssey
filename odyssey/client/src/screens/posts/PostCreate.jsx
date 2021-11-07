@@ -24,7 +24,7 @@ export default function PostCreate({ handlePostCreate }) {
 
   return (
     <div>
-      <h1>Create a new post!</h1>
+      <h1>Create a new adventure!</h1>
       <form onSubmit={handleSubmit}>
         <TextField
           autoFocus

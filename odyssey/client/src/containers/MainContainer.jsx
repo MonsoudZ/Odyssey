@@ -22,6 +22,8 @@ import PostDetail from '../screens/posts/PostDetail'
 import PostUpdate from '../screens/posts/PostUpdate'
 import CommentCreate from '../screens/comments/CommentCreate'
 import CommentUpdate from '../screens/comments/CommentUpdate'
+import { makeStyles } from "@material-ui/core/styles";
+import MainFeatured from '../screens/MainFeature';
 import {
   getAllPosts,
   getOnePost,
@@ -30,6 +32,28 @@ import {
   deletePost,
 } from '../services/posts'
 import { createComment, putComment } from '../services/comments'
+
+const useStyles = makeStyles((theme) => ({
+  mainFeatured: {
+    height: 300,
+    backgroundColor: theme.palette.grey[800],
+    color: theme.palette.common.white,
+    marginBottom: theme.spacing(4),
+    backgroundImage: "url(https://source.unsplash.com/17_tB-oI0ao/6016x4016)",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+  },
+  mainFeaturedContent: {
+    position: "relative",
+    padding: theme.spacing(3),
+    [theme.breakpoints.up("md")]: {
+      padding: theme.spacing(6),
+      paddingRight: 0,
+    },
+  },
+}));
+
 
 export default function MainContainer({ currentUser, handleImageUpload }) {
   const [posts, setPosts] = useState([])
@@ -85,8 +109,10 @@ export default function MainContainer({ currentUser, handleImageUpload }) {
     await putComment(post_id, comment_id, formData)
     history.push(`/posts/${post_id}`)
   }
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const cards = [1];
   return (
+   
+    
     <Grid container spacing={4}>
       {cards.map((card) => (
         <Grid item key={card} xs={12} sm={6} md={4}>
@@ -107,8 +133,10 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
                 Heading
               </Typography>
               <Typography>
-                This is a media card. You can use this section to describe the
-                content.
+                <Route path='/'>
+                  <Home currentUser={currentUser} latestPosts={latestPosts} />
+                </Route>
+              
               </Typography>
             </CardContent>
             <CardActions>
@@ -119,8 +147,8 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         </Grid>
       ))}
     </Grid>
-  )}
-
+  )
+}
 
 
 

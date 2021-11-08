@@ -11,9 +11,4 @@ else
   APP_DIR=$(pwd)
 fi
 
-if [ -f "$APP_DIR/Gemfile" ]; then
-  echo "Ruby"
-  exit 0
-else
-  exit 100
-fi
+echo "Ruby"

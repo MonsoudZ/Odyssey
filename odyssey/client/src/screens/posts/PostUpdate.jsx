@@ -91,6 +91,8 @@ export default function PostUpdate({ posts, handlePostUpdate }) {
                 <br />
                 <br />
                 <TextField
+                  multiline={true}
+                    rows={10}
                   type='text'
                   label='Content'
                   name='content'

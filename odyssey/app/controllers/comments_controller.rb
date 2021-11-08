@@ -1,16 +1,11 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :update, :destroy]
-  before_action :authorize_request, except: [:index]
 
   
-  # GET /comments
+  #GET /comments
   def index
-    p("")
     @comment = Comment.all
-    render json: @comment, include: [
-      user: { only: ['user_id'] },
-      comment: { only: ['id'] }
-    ]
+    render json: @comment
   end
 
   # GET /comments/1
@@ -18,12 +13,11 @@ class CommentsController < ApplicationController
     render json: @comment
   end
 
-  # POST /comments
+# POST /comments
   def create
-    @comment = Comment.new(comment_params)
-    @comment.user = @current_user
+    @comment = Comment.create!(content: comment_params[:content], post_id: comment_params[:post_id], user_id: 10)
     if @comment.save
-      render json: @comment, status: :created
+      render json: @comment
     else
       render json: @comment.errors, status: :unprocessable_entity
     end
@@ -31,29 +25,22 @@ class CommentsController < ApplicationController
 
   # PATCH/PUT /comments/1
   def update
-    if @payload[:id] == @comment.user_id && @comment.update(comment_params)
-      render json: @comment
-    elsif @payload[:id] != @comment.user_id
-      render json: {
-        error: 'Dont have permission.'
-        }, status: :unauthorized
-    else
-      render json: @comment.errors, status: :unprocessable_entity
-    end
+    p('updating record')
+    p(comment_params[:content])
+    comment = Comment.where(id: params[:id])
+    p(comment)
+    comment.update(content: comment_params[:content])
+    # comment.content = comment_params[:content]
+    # comment.save
   end
 
   # DELETE /comments/1
   def destroy
-    if @payload[:id] == @comment.user_id
-      @comment.destroy
-      render json: { message: 'order 66.'}
-    elsif @payload[:id] != @comment.user_id
-      render json: {
-        error: 'Sorry, you cant do this.'
-        }, status: :unauthorized
-    else
-      render json: @post.errors, status: :unprocessable_entity
-    end
+    p('testing delete function')
+    p(params)
+    p('test2')
+    Comment.where(id: params[:id]).delete_all
+    render json: { message: 'order 66.'}
   end
 
   private

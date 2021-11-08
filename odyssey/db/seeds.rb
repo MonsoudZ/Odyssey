@@ -26,3 +26,6 @@ Post.all.each do |post|
 end
 
 puts "#{Comment.count} comments created!"
+
+
+Comment.create!(content: "This is a test comment", post_id: 10, user_id: 10)

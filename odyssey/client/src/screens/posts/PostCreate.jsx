@@ -1,5 +1,11 @@
 import { useState } from 'react'
 import { TextField } from '@mui/material'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
 
 export default function PostCreate({ handlePostCreate }) {
   const [formData, setFormData] = useState({
@@ -23,6 +29,12 @@ export default function PostCreate({ handlePostCreate }) {
   }
 
   return (
+
+
+
+
+
+    
     <div>
       <h1>Create a new adventure!</h1>
       <form onSubmit={handleSubmit}>

@@ -42,13 +42,13 @@ export default function UserUpdate({ currentUser, handleUpdate }) {
 
   return (
     <div>
-      {/* <TextField
+       {/* <TextField
             type='file'
             onChange={handleImage}
         />
         <div>
             <img src={formData.image_url} />
-        </div> */}
+        </div>  */}
       <Link to='/users/change-password'>Change Password</Link>
       <form onSubmit={handleSubmit}>
         <TextField
@@ -66,13 +66,13 @@ export default function UserUpdate({ currentUser, handleUpdate }) {
           value={formData.email}
           onChange={handleChange}
         />
-        {/* <TextField
+         <TextField
                 type='text'
                 label='Image'
                 name='image_url'
                 value={image_url}
                 onChange={handleChange}
-            /> */}
+            />
         <button>Submit</button>
       </form>
     </div>

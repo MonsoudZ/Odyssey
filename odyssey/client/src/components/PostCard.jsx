@@ -13,12 +13,18 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
       </div>
       <div className='post-card-title'>
         <h5>{post?.title}</h5>
+          </div>
+        <div>
         <img className='image-preview' src={post?.image_url} />
       </div>
+      <h5 className='post-card-content'>{post?.content}</h5>
+      <br />
+      <br />
       {id ? (
         <>
+          <br />
+          <br />
           <div>
-            <h5 className='post-card-content'>{post?.content}</h5>
           </div>
           {currentUser && currentUser.id === post?.user_id ? (
             <div className='post-card-edit-delete'>
@@ -33,7 +39,7 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
         <>
           <div className='post-card-link'>
             <Link className='post-card-link' to={`/posts/${post.id}`}>
-              <Button>Read more!</Button>
+              <Button>Setting</Button>
             </Link>
           </div>
         </>
@@ -44,13 +50,9 @@ export default function PostCard({ currentUser, post, handlePostDelete }) {
 
 
 
-// import './PostCard.css'
-// import { Link, useParams } from 'react-router-dom'
 
 
 
-// export default function PostCard({ currentUser, post, handlePostDelete }) {
-//   const { id } = useParams()
 
 //   return (
 //     <div className='post-card'>
